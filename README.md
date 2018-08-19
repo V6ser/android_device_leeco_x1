@@ -1,3 +1,3 @@
-Copyright 2015 - The CyanogenMod Project
+Copyright 2018 - AOSP OmniROM
 
-Device configuration for LeTv letv x800 device tree x1
+Device configuration, for unofficial port of Android 8.1 to LeEco(LeTv) Le1 Pro X800 US/IN (x1_us).
