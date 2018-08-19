@@ -14,9 +14,9 @@
 # limitations under the License.
 
 # Inherit proprietary blobs
-#$(call inherit-product-if-exists, vendor/letv/x1/x1-vendor.mk)
+#$(call inherit-product-if-exists, vendor/leeco/x1/x1-vendor.mk)
 
-LOCAL_PATH := device/letv/x1
+LOCAL_PATH := device/leeco/x1
 
 DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
 
@@ -110,7 +110,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
-$(call inherit-product, frameworks/native/build/phone-xxxhdpi-3072-dalvik-heap.mk)
 
 # Screen density
 PRODUCT_AAPT_CONFIG := normal
@@ -277,6 +276,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/bdwlan30_3.bin:system/etc/wifi/bdwlan30_3.bin \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/qca_cld/WCNSS_cfg.dat \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.usb.ini \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/wifi/WCNSS_qcom_wlan_nv.bin
 
 PRODUCT_BOOT_JARS += \
@@ -286,23 +286,15 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_PACKAGES += \
     webview
 
-# Live Wallpapers
-PRODUCT_PACKAGES += \
-    com.cyanogenmod.keyhandler
-
 # Properties
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=libqti-perfd-client.so \
-    persist.radio.apm_sim_not_pwdn=1 \
     ro.sf.lcd_density=580 \
     ro.com.android.dataroaming=true \
-    persist.sys.usb.config=mtp \
+    persist.sys.usb.config=mtp,adb \
     persist.sys.isUsbOtgEnabled=true
 
 # IO Scheduler
 PRODUCT_PROPERTY_OVERRIDES += \
     sys.io.scheduler=bfq
 
-PRODUCT_SYSTEM_SERVER_JARS += com.cyanogenmod.keyhandler
-# never dexopt the keyhandler
-$(call add-product-dex-preopt-module-config,com.cyanogenmod.keyhandler,disable)

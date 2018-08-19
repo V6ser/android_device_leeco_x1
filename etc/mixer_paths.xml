@@ -85,6 +85,7 @@
     <ctl name="MultiMedia1 Mixer SLIM_0_TX" value="0" />
     <ctl name="MultiMedia1 Mixer SLIM_4_TX" value="0" />
     <ctl name="MultiMedia1 Mixer SEC_AUX_PCM_UL_TX" value="0" />
+    <ctl name="MultiMedia3 Mixer SLIM_0_TX" value="0" />
     <ctl name="HDMI Mixer MultiMedia1" value="0" />
     <ctl name="HDMI Mixer MultiMedia2" value="0" />
     <ctl name="HDMI Mixer MultiMedia3" value="0" />
@@ -195,6 +196,32 @@
     <ctl name="MultiMedia2 Mixer PRI_MI2S_TX" value="0" />
     <!-- fm end -->
 
+    <!-- smartpa -->
+    <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia1" value="0" />
+    <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia2" value="0" />
+    <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia3" value="0" />
+    <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia4" value="0" />
+    <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia5" value="0" />
+    <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia6" value="0" />
+    <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia7" value="0" />
+    <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia8" value="0" />
+    <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia9" value="0" />
+    <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia10" value="0" />
+    <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia11" value="0" />
+    <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia12" value="0" />
+    <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia13" value="0" />
+    <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia14" value="0" />
+    <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia15" value="0" />
+    <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia16" value="0" />
+    <ctl name="PRI_MI2S_RX_Voice Mixer VoiceMMode1" value="0" />
+    <ctl name="PRI_MI2S_RX_Voice Mixer VoiceMMode2" value="0" />
+    <ctl name="PRI_MI2S_RX_Voice Mixer CSVoice" value="0" />
+    <ctl name="PRI_MI2S_RX_Voice Mixer Voice2" value="0" />
+    <ctl name="PRI_MI2S_RX_Voice Mixer Voip" value="0" />
+    <ctl name="PRI_MI2S_RX_Voice Mixer VoLTE" value="0" />
+    <ctl name="Max Profile" value="hq" />
+    <!-- smartpa end -->
+
     <!-- hifi config -->
     <ctl name="Es9018 Crystal 45M Switch" value="0" />
     <ctl name="Es9018 Crystal 49M Switch" value="0" />
@@ -210,7 +237,6 @@
     <ctl name="QUAT_MI2S_RX Audio Mixer MultiMedia1" value="0" />
     <ctl name="QUAT_MI2S_RX Audio Mixer MultiMedia5" value="0" />
     <!-- hifi end -->
-
     <!-- Voice -->
     <ctl name="SLIM_0_RX_Voice Mixer CSVoice" value="0" />
     <ctl name="Voice_Tx Mixer SLIM_0_TX_Voice" value="0" />
@@ -373,6 +399,23 @@
     <ctl name="AFE_PCM_RX Audio Mixer MultiMedia2" value="0" />
     <!-- afe-proxy end-->
     <!--ctl name="AFE_PCM_RX Port Mixer PRI_MI2S_TX" value="0" /-->
+
+    <!-- surround sound record -->
+    <ctl name="Input Num Channel" value="0" />
+    <ctl name="Output Num Channel" value="0" />
+    <ctl name="Out Channel1" id="0" value="0" />
+    <ctl name="Out Channel1" id="1" value="0" />
+    <ctl name="Out Channel1" id="2" value="0" />
+    <ctl name="Out Channel2" id="0" value="0" />
+    <ctl name="Out Channel2" id="1" value="0" />
+    <ctl name="Out Channel2" id="2" value="0" />
+    <ctl name="Out Channel3" id="0" value="0" />
+    <ctl name="Out Channel3" id="1" value="0" />
+    <ctl name="Out Channel3" id="2" value="0" />
+    <ctl name="Out Channel4" id="0" value="0" />
+    <ctl name="Out Channel4" id="1" value="0" />
+    <ctl name="Out Channel4" id="2" value="0" />
+    <!-- surround sound record end -->
 
     <!-- ADSP testfwk -->
     <ctl name="SLIMBUS_DL_HL Switch" value="0" />
@@ -558,6 +601,62 @@
     <path name="low-latency-playback smartpa-and-headphones">
         <path name="low-latency-playback smartpa" />
         <path name="low-latency-playback" />
+    </path>
+
+    <path name="audio-ull-playback smartpa">
+        <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia3" value="1" />
+    </path>
+
+    <path name="audio-ull-playback">
+        <ctl name="SLIMBUS_0_RX Audio Mixer MultiMedia3" value="1" />
+    </path>
+
+    <path name="audio-ull-playback speaker-protected">
+        <path name="audio-ull-playback" />
+    </path>
+
+    <path name="audio-ull-playback headphones">
+      <path name="audio-ull-playback" />
+    </path>
+
+    <path name="audio-ull-playback speaker-and-headphones">
+        <path name="audio-ull-playback headphones" />
+    </path>
+
+    <path name="audio-ull-playback smartpa-and-headphones">
+        <path name="audio-ull-playback smartpa" />
+        <path name="audio-ull-playback headphones" />
+    </path>
+
+    <path name="audio-ull-playback hdmi">
+        <ctl name="HDMI Mixer MultiMedia3" value="1" />
+    </path>
+
+    <path name="audio-ull-playback bt-sco">
+        <ctl name="SEC_AUX_PCM_RX Audio Mixer MultiMedia3" value="1" />
+    </path>
+
+    <path name="audio-ull-playback bt-sco-wb">
+        <ctl name="AUX PCM SampleRate" value="16000" />
+        <path name="audio-ull-playback bt-sco" />
+    </path>
+
+    <path name="audio-ull-playback speaker-and-hdmi">
+        <path name="audio-ull-playback hdmi" />
+        <path name="audio-ull-playback" />
+    </path>
+
+    <path name="audio-ull-playback afe-proxy">
+        <ctl name="AFE_PCM_RX Audio Mixer MultiMedia3" value="1" />
+    </path>
+
+    <path name="audio-ull-playback usb-headphones">
+        <path name="audio-ull-playback afe-proxy" />
+    </path>
+
+    <path name="audio-ull-playback speaker-and-usb-headphones">
+        <path name="audio-ull-playback usb-headphones" />
+        <path name="audio-ull-playback" />
     </path>
 
     <path name="multi-channel-playback hdmi">
@@ -944,6 +1043,21 @@
         <ctl name="MultiMedia1 Mixer SLIM_0_TX" value="1" />
     </path>
 
+    <path name="audio-record-3mic-ssr">
+        <ctl name="Input Num Channel" value="3" />
+        <ctl name="Output Num Channel" value="4" />
+        <ctl name="Out Channel1" id="0" value="16384" />
+        <ctl name="Out Channel1" id="1" value="0" />
+        <ctl name="Out Channel1" id="2" value="0" />
+        <ctl name="Out Channel2" id="0" value="0" />
+        <ctl name="Out Channel2" id="1" value="16384" />
+        <ctl name="Out Channel2" id="2" value="0" />
+        <ctl name="Out Channel3" id="0" value="0" />
+        <ctl name="Out Channel3" id="1" value="0" />
+        <ctl name="Out Channel3" id="2" value="16384" />
+        <ctl name="MultiMedia3 Mixer SLIM_0_TX" value="1" />
+    </path>
+
     <path name="audio-record usb-headset-mic">
         <ctl name="MultiMedia1 Mixer AFE_PCM_TX" value="1" />
     </path>
@@ -966,7 +1080,7 @@
     </path>
 
     <path name="audio-record-compress bt-sco">
-        <!--ctl name="MultiMedia8 Mixer SEC_AUX_PCM_UL_TX" value="1" /-->
+        <ctl name="MultiMedia8 Mixer SEC_AUX_PCM_UL_TX" value="1" />
     </path>
 
     <path name="audio-record-compress bt-sco-wb">
@@ -983,7 +1097,7 @@
     </path>
 
     <path name="low-latency-record bt-sco">
-      <!--ctl name="MultiMedia5 Mixer SEC_AUX_PCM_UL_TX" value="1" /-->
+      <ctl name="MultiMedia5 Mixer SEC_AUX_PCM_UL_TX" value="1" />
     </path>
 
     <path name="low-latency-record bt-sco-wb">
@@ -992,7 +1106,7 @@
     </path>
 
     <path name="low-latency-record capture-fm">
-      <!--ctl name="MultiMedia5 Mixer PRI_MI2S_TX" value="1" /-->
+      <ctl name="MultiMedia5 Mixer PRI_MI2S_TX" value="1" />
     </path>
 
     <path name="fm-virtual-record capture-fm">
@@ -1274,6 +1388,12 @@
         <ctl name="VoLTE_Tx Mixer SLIM_0_TX_VoLTE" value="1" />
     </path>
 
+    <path name="volte-call smartpa">
+        <ctl name="PRI_MI2S_RX_Voice Mixer VoLTE" value="1" />
+        <ctl name="VOC_EXT_EC MUX" value="PRI_MI2S_TX" />
+        <ctl name="VoLTE_Tx Mixer SLIM_0_TX_VoLTE" value="1" />
+    </path>
+
     <path name="volte-call hdmi">
         <ctl name="HDMI_RX_Voice Mixer VoLTE" value="1" />
         <ctl name="VoLTE_Tx Mixer SLIM_0_TX_VoLTE" value="1" />
@@ -1519,14 +1639,7 @@
     </path>
 
     <path name="speaker">
-        <!--ctl name="SLIM RX1 MUX" value="AIF1_PB" /-->
-        <!--ctl name="SLIM RX2 MUX" value="AIF1_PB" /-->
-        <!--ctl name="SLIM_0_RX Channels" value="Two" /-->
-        <!--ctl name="RX7 MIX1 INP1" value="RX1" /-->
-        <!--ctl name="RX8 MIX1 INP1" value="RX2" /-->
-        <!--ctl name="RX7 Digital Volume" value="84" /-->
-        <!--ctl name="RX8 Digital Volume" value="84" /-->
-        <!--ctl name="COMP0 Switch" value="1" /-->
+        <ctl name="Max Profile" value="hq" />
     </path>
 
     <path name="speaker-fluid">
@@ -1553,8 +1666,8 @@
         <ctl name="SLIM_0_RX Channels" value="Two" />
         <ctl name="RX3 MIX1 INP1" value="RX1" />
         <ctl name="RX5 MIX1 INP1" value="RX2" />
-        <ctl name="RX3 Digital Volume" value="68" />
-        <ctl name="RX5 Digital Volume" value="68" />
+        <ctl name="RX3 Digital Volume" value="84" />
+        <ctl name="RX5 Digital Volume" value="84" />
         <ctl name="LINEOUT1 Volume" value="84" />
         <ctl name="LINEOUT2 Volume" value="84" />
         <ctl name="COMP2 Switch" value="1" />
@@ -1587,9 +1700,9 @@
 
     <path name="sidetone-headphones">
         <path name="sidetone-iir" />
-        <ctl name="IIR1 INP1 Volume" value="0" />
-        <ctl name="RX1 MIX2 INP1" value="ZERO" />
-        <ctl name="RX2 MIX2 INP1" value="ZERO" />
+        <ctl name="IIR1 INP1 Volume" value="54" />
+        <ctl name="RX1 MIX2 INP1" value="IIR1" />
+        <ctl name="RX2 MIX2 INP1" value="IIR1" />
     </path>
 
     <path name="sidetone-handset">
@@ -1626,32 +1739,28 @@
         <ctl name="AIF4_VI Mixer SPKR_VI_1" value="1" />
         <path name="speaker-fluid" />
         <ctl name="VI_FEED_TX Channels" value="One" />
-        <ctl name="SLIM0_RX_VI_FB_LCH_MUX" value="SLIM4_TX" />
+        <ctl name="SLIM0_RX_VI_FB_LCH_MUX"  value="SLIM4_TX" />
     </path>
 
     <path name="vi-feedback">
     </path>
 
     <path name="speaker-mono">
-        <!--ctl name="SLIM RX1 MUX" value="AIF1_PB" /-->
-        <!--ctl name="SLIM_0_RX Channels" value="One" /-->
-        <!--ctl name="RX7 MIX1 INP1" value="RX1" /-->
-        <!--ctl name="COMP0 Switch" value="1" /-->
-        <!--ctl name="RX7 Digital Volume" value="84" /-->
+        <ctl name="Max Profile" value="speech" />
     </path>
 
     <path name="voice-speaker-protected">
         <ctl name="AIF4_VI Mixer SPKR_VI_1" value="1" />
         <path name="speaker-mono" />
         <ctl name="VI_FEED_TX Channels" value="One" />
-        <ctl name="SLIM0_RX_VI_FB_LCH_MUX" value="SLIM4_TX" />
+        <ctl name="SLIM0_RX_VI_FB_LCH_MUX"  value="SLIM4_TX" />
     </path>
 
     <path name="voice-speaker-protected-fluid">
         <ctl name="AIF4_VI Mixer SPKR_VI_1" value="1" />
         <path name="speaker-fluid" />
         <ctl name="VI_FEED_TX Channels" value="One" />
-        <ctl name="SLIM0_RX_VI_FB_LCH_MUX" value="SLIM4_TX" />
+        <ctl name="SLIM0_RX_VI_FB_LCH_MUX"  value="SLIM4_TX" />
     </path>
 
     <path name="handset">
@@ -1696,6 +1805,19 @@
         <ctl name="ADC5 Volume" value="20" />
     </path>
 
+    <path name="three-mic">
+        <ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
+        <ctl name="AIF1_CAP Mixer SLIM TX8" value="1" />
+        <ctl name="AIF1_CAP Mixer SLIM TX9" value="1" />
+        <ctl name="SLIM_0_TX Channels" value="Three" />
+        <ctl name="SLIM TX7 MUX" value="DEC9" />
+        <ctl name="DEC9 MUX" value="DMIC5" />
+        <ctl name="SLIM TX8 MUX" value="DEC7" />
+        <ctl name="DEC7 MUX" value="DMIC1" />
+        <ctl name="SLIM TX9 MUX" value="DEC10" />
+        <ctl name="DEC10 MUX" value="DMIC3" />
+    </path>
+
     <path name="anc-handset">
         <ctl name="ANC Function" value="ON" />
         <ctl name="SLIM RX1 MUX" value="AIF1_PB" />
@@ -1712,7 +1834,6 @@
     <path name="anc-handset-brightness">
         <path name="anc-handset" />
     </path>
-
     <path name="headphones">
         <ctl name="Es9018 Bypass Switch" value="1" />
         <ctl name="SLIM RX1 MUX" value="AIF1_PB" />
@@ -1760,7 +1881,6 @@
     </path>
 
     <path name="voice-handset">
-        <path name="sidetone-handset" />
         <path name="handset" />
     </path>
 
@@ -1789,10 +1909,6 @@
         <ctl name="COMP2 Switch" value="1" />
     </path>
 
-    <path name="voice-speaker-brightness">
-        <path name="speaker" />
-    </path>
-
     <path name="voice-speaker-mic">
         <path name="speaker-mic" />
         <ctl name="ADC4 Volume" value="10" />
@@ -1808,12 +1924,14 @@
 
     <path name="voice-headset-mic">
         <path name="headset-mic" />
-        <path name="sidetone-headphones" />
         <ctl name="ADC2 Volume" value="13" />
     </path>
 
     <path name="speaker-and-headphones">
         <path name="headphones" />
+        <ctl name="RX7 MIX1 INP1" value="RX1" />
+        <ctl name="RX8 MIX1 INP1" value="RX2" />
+        <ctl name="COMP0 Switch" value="1" />
     </path>
 
     <path name="speaker-and-headphones-fluid">
@@ -1934,8 +2052,6 @@
         <ctl name="IIR1 Enable Band4" value="1" />
         <ctl name="IIR1 Enable Band5" value="1" />
         <ctl name="IIR1 INP1 Volume" value="54" />
-        <ctl name="RX1 MIX2 INP1" value="IIR1" />
-        <ctl name="RX2 MIX2 INP1" value="IIR1" />
         <ctl name="CLASS_H_DSM MUX" value="DSM_HPHL_RX1" />
         <ctl name="HPHL DAC Switch" value="1" />
         <ctl name="RX1 Digital Volume" value="84" />
@@ -1963,8 +2079,6 @@
         <ctl name="IIR1 Enable Band4" value="1" />
         <ctl name="IIR1 Enable Band5" value="1" />
         <ctl name="IIR1 INP1 Volume" value="54" />
-        <ctl name="RX1 MIX2 INP1" value="IIR1" />
-        <ctl name="RX2 MIX2 INP1" value="IIR1" />
         <ctl name="CLASS_H_DSM MUX" value="DSM_HPHL_RX1" />
         <ctl name="HPHL DAC Switch" value="1" />
         <ctl name="RX1 Digital Volume" value="81" />

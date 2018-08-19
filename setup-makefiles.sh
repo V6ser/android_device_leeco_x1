@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export VENDOR=letv
+export VENDOR=leeco
 export DEVICE=x1
 
 OUTDIR=vendor/$VENDOR/$DEVICE

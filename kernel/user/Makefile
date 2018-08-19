@@ -2,6 +2,7 @@
 
 VERSION = 3
 PATCHLEVEL = 10
+SUBLEVEL = 108
 
 lastword = $(word $(words $(1)),$(1))
 makedir := $(dir $(call lastword,$(MAKEFILE_LIST)))
@@ -13,7 +14,7 @@ ifneq ($(VERBOSE),1)
 Q := @
 endif
 
-MAKEARGS := -C /home/panyoujie/cm12/kernel/letv/msm8994
+MAKEARGS := -C /mnt/c/Users/rafd9/Desktop/Workspace/kernel/leeco/x1
 MAKEARGS += O=$(if $(patsubst /%,,$(makedir)),$(CURDIR)/)$(patsubst %/,%,$(makedir))
 
 MAKEFLAGS += --no-print-directory
